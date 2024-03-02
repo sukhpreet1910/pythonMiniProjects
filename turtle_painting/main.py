@@ -31,10 +31,10 @@ billa.shape("turtle")
 
 
 # Challenge 4
-# colors = ['Tomato', 'IndianRed', 'Tan', 'SlateGrey', 'Wheat', 'DeepPink', 'Purple', 'NavajoWhite', 'RosyBrown']
-# directions = [90, 180, 270, 360]
-# billa.speed('fastest')
-# billa.width(10)
+colors = ['Tomato', 'IndianRed', 'Tan', 'SlateGrey', 'Wheat', 'DeepPink', 'Purple', 'NavajoWhite', 'RosyBrown']
+directions = [90, 180, 270, 360]
+billa.speed('fastest')
+billa.width(10)
 t.colormode(255)
 def random_color():
     r = random.randint(1, 256)
@@ -42,12 +42,13 @@ def random_color():
     b = random.randrange(1, 256)
     return (r, g, b)
 
-# for _ in range(200):
-#     billa.forward(30)
-#     billa.setheading(random.choice(directions))
-#     billa.pencolor(random_color())
+for _ in range(200):
+    billa.forward(30)
+    billa.setheading(random.choice(directions))
+    billa.pencolor(random_color())
 
 
+# Challenge 5
 billa.speed('fastest')
 def spirogrpah(circle_gap):
     count = 0
