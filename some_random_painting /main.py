@@ -19,49 +19,20 @@ t.colormode(255)
 billa.penup()
 billa.ht()
 
-count = 1
-def next_line():
-    global count
-    count += 1
-    billa.left(90)
+billa.setheading(225)
+billa.forward(200)
+billa.setheading(0)
+dot_count = 100
+
+for i in range(1, dot_count + 1):
+    billa.dot(20, r.choice(color_list))
     billa.fd(30)
-    billa.left(90)
-    billa.fd(300)
-    billa.seth(0)
-    if count <= 10:
-        dot_line()
-
-billa.seth(225)
-billa.left(90)
-
-def dot_line():
-    
-    for i in range(10):
-        billa.dot(20, r.choice(color_list))
+    if i % 10 == 0:
+        billa.left(90)
         billa.fd(30)
-        if i == 9:
-            next_line()
-        
-dot_line()
-                
-       
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        billa.left(90)
+        billa.fd(300)
+        billa.seth(0)
 
 screen = t.Screen()
 screen.exitonclick()
