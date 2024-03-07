@@ -17,11 +17,19 @@ class Snake(Turtle):
     def create_snake(self):
 
         for i in SARTING_POSITIN:
-            sapp = Turtle('square')
-            sapp.penup()
-            sapp.color('white')
-            sapp.goto(i)
-            self.all_sapp.append(sapp)
+            self.add_segament(i)
+            
+
+    def add_segament(self, position):
+        sapp = Turtle('square')
+        sapp.penup()
+        sapp.color('white')
+        sapp.goto(position)
+        self.all_sapp.append(sapp)
+
+    def extend(self):
+        self.add_segament(self.all_sapp[-1].position())
+
 
     def move_snake(self):
         for seg in range(len(self.all_sapp) - 1, 0, -1):

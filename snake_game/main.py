@@ -11,6 +11,7 @@ screen.title('My Snake Game ')
 screen.tracer(0)
 
 snake = Snake()
+snake.speed('fast')
 food = Food()
 score_board = Score()
 # snake.create_snake()
@@ -31,12 +32,30 @@ while game_on:
     time.sleep(0.1)
     
     snake.move_snake()
+
+    # Collision with food 
     if snake.head.distance(food) < 15:
-        score_board.increase_score()
         food.refresh_location()
+        snake.extend()
+        score_board.increase_score()
+        
+
+    # Collision with wall
     if snake.head.xcor() < -290 or snake.head.xcor() > 290 or snake.head.ycor() < -290 or snake.head.ycor() > 290:
         game_on = False
         score_board.game_over()
+
+    
+    # Detect Collision with tail
+    for sapp in snake.all_sapp:
+        if sapp == snake.head:
+            pass
+        elif snake.head.distance(sapp) < 10:
+            game_on = False
+            score_board.game_over()
+            
+
+        
 
 
 
