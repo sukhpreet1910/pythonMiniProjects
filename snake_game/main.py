@@ -42,15 +42,18 @@ while game_on:
 
     # Collision with wall
     if snake.head.xcor() < -290 or snake.head.xcor() > 290 or snake.head.ycor() < -290 or snake.head.ycor() > 290:
-        game_on = False
-        score_board.game_over()
+        snake.reset()
+        score_board.reset()
+        # score_board.game_over()
 
     
     # Detect Collision with tail
     for sapp in snake.all_sapp[1:]:
         if snake.head.distance(sapp) < 10:
-            game_on = False
-            score_board.game_over()
+            snake.reset()
+            score_board.reset()
+            
+            # score_board.game_over()
             
 
         

@@ -5,6 +5,8 @@ UP = 90
 DOWN = 270
 RIGHT = 0
 LEFT = 180
+
+
 class Snake(Turtle):
 
     def __init__(self):
@@ -16,8 +18,8 @@ class Snake(Turtle):
 
     def create_snake(self):
 
-        for i in SARTING_POSITIN:
-            self.add_segament(i)
+        for position in SARTING_POSITIN:
+            self.add_segament(position)
             
 
     def add_segament(self, position):
@@ -37,6 +39,13 @@ class Snake(Turtle):
             new_y = self.all_sapp[seg - 1].ycor()
             self.all_sapp[seg].goto(new_x, new_y)
         self.head.forward(MOVE_DISTANCE)
+    
+    def reset(self) -> None:
+        for sapp in self.all_sapp:
+            sapp.goto(1000, 1000)
+        self.all_sapp.clear()
+        self.create_snake()
+        self.head = self.all_sapp[0]
 
     def up(self):
         if self.head.heading() != DOWN:
